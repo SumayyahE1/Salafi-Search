@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Salafi Search Engine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Navigation Bar - MOVED TO TOP -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+
+                    <!-- Resources Dropdown -->
+                    <div class="resources-dropdown">
+                        <button class="resources-btn">
+                            Resources <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="resources.html#telegram">
+                                <i class="fab fa-telegram"></i>
+                                Telegram Channels
+                            </a>
+                            <a href="resources.html#mixlr">
+                                <i class="fas fa-podcast"></i>
+                                Mixlr Accounts
+                            </a>
+                            <a href="resources.html#soundcloud">
+                                <i class="fab fa-soundcloud"></i>
+                                SoundCloud Accounts
+                            </a>
+                            <a href="resources.html#youtube">
+                                <i class="fab fa-youtube"></i>
+                                YouTube Channels
+                            </a>
+                            <a href="resources.html">
+                                <i class="fas fa-book"></i>
+                                All Resources
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <div class="theme-toggle">
+                    <button id="darkModeToggle" class="toggle-btn">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <header class="header">
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <h1 class="title">Salafi Search Engine</h1>
+            <div class="arabic-title">محرك البحث السلفي</div>
+            <p class="subtitle">Search trusted Islamic knowledge across authentic sources</p>
+        </header>
+
+        <!-- Search Section -->
+        <main class="search-section">
+            <div class="search-container">
+                <script async src="https://cse.google.com/cse.js?cx=7167b282d7b3d4e40"></script>
+                <div class="gcse-search"></div>
+            </div>
+
+            <div class="enhanced-by">
+                <span>Enhanced by Google</span>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Salafi Search Engine | Built with Google PSE</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
