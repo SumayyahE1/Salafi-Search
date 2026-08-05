@@ -1,8 +1,8 @@
-// Dark Mode Toggle
+// Mobile-Optimized JavaScript - Desktop remains unchanged
 document.addEventListener('DOMContentLoaded', function () {
+    // Your existing dark mode code - KEEP AS IS
     const darkModeToggle = document.getElementById('darkModeToggle');
 
-    // Check if elements exist before proceeding
     if (!darkModeToggle) {
         console.error('Dark mode toggle button not found');
         return;
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggleIcon = darkModeToggle.querySelector('i');
     const toggleText = darkModeToggle.querySelector('span');
 
-    // Check for saved theme or prefer-color-scheme
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -41,69 +40,56 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('theme', 'light');
     }
 
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-            if (e.matches) {
-                enableDarkMode();
-            } else {
-                disableDarkMode();
-            }
+    // === MOBILE-ONLY ENHANCEMENTS ===
+    if (window.innerWidth <= 768) {
+        initMobileDropdown();
+        initMobileNavigation();
+    }
+
+    // Your existing resources tabs code - KEEP AS IS
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const resourceSections = document.querySelectorAll('.resource-section');
+
+    if (tabLinks.length > 0) {
+        const hash = window.location.hash;
+        if (hash) {
+            switchTab(hash.substring(1));
         }
-    });
 
-    // Resources Dropdown Functionality - MOBILE OPTIMIZED
-    const resourcesBtn = document.querySelector('.resources-btn');
-    const dropdown = document.querySelector('.dropdown-content');
-
-    // Only add dropdown functionality if elements exist
-    if (resourcesBtn && dropdown) {
-        const resourcesDropdown = resourcesBtn.closest('.resources-dropdown');
-
-        // Set initial state
-        dropdown.style.display = 'none';
-
-        // Touch-friendly dropdown toggle
-        resourcesBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-            const isOpen = dropdown.style.display === 'block';
-            dropdown.style.display = isOpen ? 'none' : 'block';
+        tabLinks.forEach(tab => {
+            tab.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.getAttribute('href').substring(1);
+                switchTab(target);
+                history.pushState(null, null, `#${target}`);
+            });
         });
 
-        // Close dropdown when touching outside
-        document.addEventListener('touchstart', function (e) {
-            if (resourcesDropdown && !resourcesDropdown.contains(e.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
+        function switchTab(target) {
+            tabLinks.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('href') === `#${target}`) {
+                    tab.classList.add('active');
+                }
+            });
 
-        document.addEventListener('click', function (e) {
-            if (resourcesDropdown && !resourcesDropdown.contains(e.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
+            resourceSections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === target) {
+                    section.classList.add('active');
+                }
+            });
+        }
 
-        // Close dropdown after selecting a link (mobile)
-        dropdown.addEventListener('click', function (e) {
-            if (e.target.tagName === 'A' || e.target.closest('a')) {
-                // Small delay to allow navigation
-                setTimeout(() => {
-                    dropdown.style.display = 'none';
-                }, 300);
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 768) {
-                dropdown.style.display = 'none';
+        window.addEventListener('popstate', function () {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                switchTab(hash);
             }
         });
     }
 
-    // Add active state to current page in navigation
+    // Your existing active navigation code - KEEP AS IS
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -118,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Handle resources dropdown active state
     const resourcesDropdown = document.querySelector('.resources-dropdown');
     if (resourcesDropdown && currentPage === 'resources.html') {
         const resourcesBtn = resourcesDropdown.querySelector('.resources-btn');
@@ -126,4 +111,57 @@ document.addEventListener('DOMContentLoaded', function () {
             resourcesBtn.classList.add('active');
         }
     }
+
+    // System theme listener - KEEP AS IS
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                enableDarkMode();
+            } else {
+                disableDarkMode();
+            }
+        }
+    });
 });
+
+// Mobile-only functions
+function initMobileDropdown() {
+    const resourcesBtn = document.querySelector('.resources-btn');
+    const dropdown = document.querySelector('.dropdown-content');
+
+    if (resourcesBtn && dropdown) {
+        // Hide dropdown by default on mobile
+        dropdown.style.display = 'none';
+
+        resourcesBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isVisible = dropdown.style.display === 'block';
+            dropdown.style.display = isVisible ? 'none' : 'block';
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!resourcesBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Close dropdown after link click
+        dropdown.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+                setTimeout(() => {
+                    dropdown.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+}
+
+function initMobileNavigation() {
+    // Add touch-friendly improvements
+    const allButtons = document.querySelectorAll('button, a, .resource-link, .tab-link');
+
+    allButtons.forEach(button => {
+        button.style.cursor = 'pointer';
+    });
+}
