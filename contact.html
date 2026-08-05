@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Salafi Search Engine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <!-- Resources Dropdown -->
+                    <div class="resources-dropdown">
+                        <button class="resources-btn">
+                            Resources <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="resources.html#telegram">
+                                <i class="fab fa-telegram"></i>
+                                Telegram Channels
+                            </a>
+                            <a href="resources.html#mixlr">
+                                <i class="fas fa-podcast"></i>
+                                Mixlr Accounts
+                            </a>
+                            <a href="resources.html#soundcloud">
+                                <i class="fab fa-soundcloud"></i>
+                                SoundCloud Accounts
+                            </a>
+                            <a href="resources.html#youtube">
+                                <i class="fab fa-youtube"></i>
+                                YouTube Channels
+                            </a>
+                            <a href="resources.html">
+                                <i class="fas fa-book"></i>
+                                All Resources
+                            </a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </div>
+                <!-- Dark Mode Toggle -->
+                <div class="theme-toggle">
+                    <button id="darkModeToggle" class="toggle-btn">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <header class="header">
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <h1 class="title">Contact Us</h1>
+            <div class="arabic-title">اتصل بنا</div>
+            <p class="subtitle">Get in touch with suggestions, feedback, or questions</p>
+        </header>
+
+        <main class="contact-page">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>We welcome your feedback, suggestions, and questions about the Salafi Search Engine. Whether you
+                        have resource recommendations, technical issues, or general inquiries, we're here to help.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>Send us your questions and suggestions</p>
+                                <a href="mailto:contact@salafisearch.com"
+                                    class="contact-link">contact@salafisearch.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <h3>Suggest Resources</h3>
+                                <p>Recommend authentic Salafi resources to add</p>
+                                <a href="mailto:resources@salafisearch.com"
+                                    class="contact-link">resources@salafisearch.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <i class="fas fa-bug"></i>
+                            <div>
+                                <h3>Report Issues</h3>
+                                <p>Let us know about any technical problems</p>
+                                <a href="mailto:support@salafisearch.com"
+                                    class="contact-link">support@salafisearch.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <h2>Send us a Message</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="resource">Resource Suggestion</option>
+                                <option value="technical">Technical Issue</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required
+                                placeholder="Please write your message here..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>How can I suggest a resource to be added?</h3>
+                        <p>You can suggest resources by emailing us at resources@salafisearch.com with the details of
+                            the resource and why you believe it should be included.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>What criteria do you use for selecting resources?</h3>
+                        <p>We verify that resources follow the Salafi methodology, provide authentic Islamic knowledge,
+                            and are from trusted scholars or students of knowledge.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Can I request a feature for the search engine?</h3>
+                        <p>Yes! We welcome feature suggestions. Please email us with your ideas and we'll consider them
+                            for future updates.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>How often is the resource list updated?</h3>
+                        <p>We regularly review and update our resource list to ensure all links are working and to add
+                            new authentic sources.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-link">
+                <a href="index.html">← Back to Search</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Salafi Search Engine | Built with Google PSE</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
